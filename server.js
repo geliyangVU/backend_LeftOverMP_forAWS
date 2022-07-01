@@ -16,7 +16,7 @@ app.use(express.json())
 
 const home=require("./routes/home")
 const allroutes=require("./routes/routes")
-app.use("/home",home)
+app.use("/",home)
 app.use('/api',allroutes)
 
 
