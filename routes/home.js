@@ -3,7 +3,7 @@ const router = express.Router();
 
 router.get("/", async (req, res) => {
   return res.status(200).json({
-    title: "Express Testing",
+    title: "AWS instance for LeftOverMarketPlace",
     message: "working",
     message2:"this is the home route"
   });
