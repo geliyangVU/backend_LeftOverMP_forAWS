@@ -38,7 +38,24 @@ const userSchema = new mongoose.Schema({
     followers:{
         type:Array,
         default:[]
-    }
+    },
+    description:{
+        type:String, 
+        max:50
+    },
+    city:{
+        type:String, 
+        max:50
+    },
+    from:{
+        type:String, 
+        max:50
+    },
+    ////add chat property later
+    // chat:{
+    //     type:Array,
+    //     default:[]
+    // }
 });
 
 let User=mongoose.model("User", userSchema)
