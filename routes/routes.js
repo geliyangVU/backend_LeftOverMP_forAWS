@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const { getAllUsers,getUser,editPassword,deleteUser,loginUser,registerUser}=require('../controllers/userController')
+const { getAllUsers,getUser,editPassword,deleteUser,loginUser,registerUser,followUser,unfollowUser}=require('../controllers/userController')
 const{getAllItems,uploadItem,deleteItem, getItem}=require('../controllers/itemController')
 
 //User Controller
@@ -17,6 +17,10 @@ router.get('/users/getUser/:id', getUser)
 //allow User to edit password.  (passing id as parameter)
 router.put('/users/editPassword/:id',editPassword)
 router.delete('/users/deleteUser',deleteUser)
+router.put('/users/:id/follow',followUser)
+router.put('/users/:id/unfollow',unfollowUser)
+
+
 
 
 // Item Controller
