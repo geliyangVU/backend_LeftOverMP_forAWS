@@ -69,17 +69,31 @@ const deleteUser = asyncHandler(async (req, res)=>{
 
 
 const loginUser = asyncHandler(async (req, res)=>{
-    const {email,password}= req.body
-    const user=await User.findOne({email})
+    try {
+        const {email,password}= req.body
+        const user=await User.findOne({email})
 
-    if(user && (await bcrypt.compare(password,user.password))){
-        res.json({message:"logged in ",
-        token:generateToken(user._id)
-    })
-    }else{
-        res.status(400)
-        throw new Error('Invalid credentials')
+        //if user is not found by email, return status code 404 and user not found message
+        if(!user){
+            res.status(404).json("user not found");
+        }
+
+        //if user exist and password is correct
+        if(user && (await bcrypt.compare(password,user.password))){
+            res.json({message:"logged in ",
+            token:generateToken(user._id)
+        })
+        }else{
+            res.status(400)
+            throw new Error('Invalid credentials')
+        }
+        
+    } catch (error) {
+        res.status(500).json(error);
     }
+
+
+    
 })
 
 
@@ -91,7 +105,7 @@ const getMe= asyncHandler(async (req,res)=>{
 
 const registerUser=asyncHandler( async (req,res)=>{
     const {username, email,password,firstName,lastName} = req.body
-
+    //is one of the username email password is not provided, return 400
     if (!username||!email||!password){
         res.status(400)
         throw new Error('please add all three fields')
@@ -107,6 +121,7 @@ const registerUser=asyncHandler( async (req,res)=>{
 
     const salt= await bcrypt.genSalt(10)
     const hashedPassword=await bcrypt.hash(password, salt)
+    // create user based on input data
     const user= await User.create({
         username,
         email,
@@ -116,6 +131,7 @@ const registerUser=asyncHandler( async (req,res)=>{
     })
 
     if(user){
+        //user created!
         res.status(201).json({
             _id:user.id,
             username:user.username,
