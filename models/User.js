@@ -1,61 +1,61 @@
 const mongoose = require('mongoose')
-const Schema=mongoose.Schema;
+const Schema = mongoose.Schema;
 
 
 const userSchema = new mongoose.Schema({
     username: {
-        type : String,
+        type: String,
         require: true,
-        min:3,
-        max:20,
-        unique:true
+        min: 3,
+        max: 20,
+        unique: true
     },
-    email:{
-        type:String,
-        max:50,
-        unique:true
+    email: {
+        type: String,
+        max: 50,
+        unique: true
     },
     password: {
         type: String,
-        required:true,
+        required: true,
     },
     creationDate: {
-        type:Date, 
-        default:Date.now
+        type: Date,
+        default: Date.now
     },
-    imageLink:{
-        type:String, 
-        default:""
+    imageLink: {
+        type: String,
+        default: ""
     },
-    posts:{
-        type:Array,
-        default:[]
+    posts: {
+        type: Array,
+        default: []
     },
-    followings:{
-        type:Array,
-        default:[]
+    followings: {
+        type: Array,
+        default: []
     },
-    followers:{
-        type:Array,
-        default:[]
+    followers: {
+        type: Array,
+        default: []
     },
-    description:{
-        type:String, 
-        max:50
+    description: {
+        type: String,
+        max: 50
     },
-    city:{
-        type:String, 
-        max:50
+    city: {
+        type: String,
+        max: 50
     },
-    from:{
-        type:String, 
-        max:50
+    from: {
+        type: String,
+        max: 50
     },
 
     //add backend admin functionality later
-    isAdmin:{
-        type:Boolean,
-        default:false
+    isAdmin: {
+        type: Boolean,
+        default: false
     }
 
     ////add chat property later
@@ -65,6 +65,6 @@ const userSchema = new mongoose.Schema({
     // }
 });
 
-let User=mongoose.model("User", userSchema)
+let User = mongoose.model("User", userSchema)
 
 module.exports = User;

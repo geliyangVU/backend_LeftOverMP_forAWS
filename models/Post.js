@@ -4,16 +4,16 @@ const Schema = mongoose.Schema;
 const PostSchema = new mongoose.Schema({
     userId: {
         type: String,
-        required : true 
+        required: true
     },
     description: {
         type: String,
-        max : 500 
+        max: 500
     },
     img: {
         type: String,
     },
-    interested:{
+    interested: {
         type: Array,
         default: []
     }
