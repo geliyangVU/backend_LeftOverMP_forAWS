@@ -7,7 +7,11 @@ const{getAllItems,uploadItem,deleteItem, getItem}=require('../controllers/itemCo
 router.get('/users/getAllUsers', getAllUsers)
 router.post('/users/register',registerUser)
 router.post('/users/login',loginUser)
-router.get('/users/getUser', getUser)
+
+
+
+//get user info by calling this with id as parameter
+router.get('/users/getUser/:id', getUser)
 
 
 //allow User to edit password.  (passing id as parameter)
