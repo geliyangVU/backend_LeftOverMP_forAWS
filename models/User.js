@@ -19,8 +19,26 @@ const userSchema = new mongoose.Schema({
         type: String,
         required:true,
     },
-    creationDate: {type:Date, default:Date.now},
-    imageLink:{type:String, default:""}
+    creationDate: {
+        type:Date, 
+        default:Date.now
+    },
+    imageLink:{
+        type:String, 
+        default:""
+    },
+    posts:{
+        type:Array,
+        default:[]
+    },
+    followings:{
+        type:Array,
+        default:[]
+    },
+    followers:{
+        type:Array,
+        default:[]
+    }
 });
 
 let User=mongoose.model("User", userSchema)
