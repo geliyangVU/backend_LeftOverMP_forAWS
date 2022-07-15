@@ -51,6 +51,13 @@ const userSchema = new mongoose.Schema({
         type:String, 
         max:50
     },
+
+    //add backend admin functionality later
+    isAdmin:{
+        type:Boolean,
+        default:false
+    }
+
     ////add chat property later
     // chat:{
     //     type:Array,

@@ -39,19 +39,22 @@ const getUser= async (req, res)=>{
 }
 
 
-
-const editUser = asyncHandler(async (req, res)=>{
-    const {username,email} = req.body
-    const user= await User.findOneAndUpdate({username,email})
-    if(user){
-        res.status(200).json({
-            username:user.username,
-            email:user.email,
-            password:user.password,
-            message: "User updated"})
-    }else{
-        res.status(400)
-        throw new Error('User not found')
+//allow user to update password. 
+const editPassword = asyncHandler(async (req, res)=>{
+    if(req.body.userId===req.params.id){
+        if(req.body.password){
+            const salt = await bcrypt.genSalt(6);
+            req.body.password= await bcrypt.hash(req.body.password,salt);
+        }
+        try {
+            const user= await User.findByIdAndUpdate(req.params.id,{
+                $set: req.body,
+            });
+            res.status(200).json("Password has been updated")
+            
+        } catch (err) {
+            return res.status(500).json(err)
+        }
     }
 })
 
@@ -97,9 +100,6 @@ const loginUser = asyncHandler(async (req, res)=>{
 })
 
 
-const getMe= asyncHandler(async (req,res)=>{
-    res.json({message:"user data displayed"})
-})
 
 
 
@@ -148,5 +148,5 @@ const registerUser=asyncHandler( async (req,res)=>{
 
 
 module.exports={
-    getAllUsers,getUser,editUser,deleteUser,loginUser,getMe,registerUser
+    getAllUsers,getUser,editPassword,deleteUser,loginUser,registerUser
 }
