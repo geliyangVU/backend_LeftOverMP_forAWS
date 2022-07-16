@@ -2,13 +2,11 @@ const express = require('express')
 const router = express.Router()
 const { getAllUsers, getUser, editPassword, deleteUser, loginUser, registerUser, followUser, unfollowUser } = require('../controllers/userController')
 const { getAllItems, uploadItem, deleteItem, getItem } = require('../controllers/itemController')
-
+const {createConversation} = require("../controllers/conversationController")
 //User Controller
 router.get('/users/getAllUsers', getAllUsers)
 router.post('/users/register', registerUser)
 router.post('/users/login', loginUser)
-
-
 
 //get user info by calling this with id as parameter
 router.get('/users/getUser/:id', getUser)
@@ -23,10 +21,23 @@ router.put('/users/:id/unfollow', unfollowUser)
 
 
 
+
 // Item Controller
 router.get('/items/getAllItems', getAllItems)
 router.post('/items/uploadItem', uploadItem)
 router.delete('/items/deleteItem', deleteItem)
 router.get('/items/getItem', getItem)
+
+
+
+//Post Controller
+//ToDo
+
+
+//Conversation Controller
+router.post('/conversations/createConversation', createConversation)
+
+
+
 
 module.exports = router
