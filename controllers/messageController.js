@@ -13,7 +13,19 @@ const sendMessage = async (req, res) => {
     }
 }
 
+
+const getUserMessage = async (req, res) => {
+    try {
+        const messages = await Message.find({
+            ConversationId:req.params.ConversationId,
+        })
+        res.status(200).json(messages)
+    } catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+}
+
 module.exports = {
-    sendMessage
+    sendMessage,getUserMessage
 
 }

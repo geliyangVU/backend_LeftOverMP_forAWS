@@ -3,7 +3,7 @@ const router = express.Router()
 const { getAllUsers, getUser, editPassword, deleteUser, loginUser, registerUser, followUser, unfollowUser } = require('../controllers/userController')
 const { getAllItems, uploadItem, deleteItem, getItem } = require('../controllers/itemController')
 const {createConversation,getUserConversation} = require("../controllers/conversationController")
-const { sendMessage } = require('../controllers/messageController')
+const { sendMessage,getUserMessage } = require('../controllers/messageController')
 
 
 
@@ -46,6 +46,7 @@ router.get('/conversations/getUserConversation/:id', getUserConversation)//teste
 
 //Message Controller
 router.post('/messages/sendMessage', sendMessage)//tested using postman
+router.get('/messages/:ConversationId', getUserMessage)//tested using postman
 
 
 
