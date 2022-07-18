@@ -6,17 +6,35 @@ const PostSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    postId: {
+        type: String,
+        required: true
+    },
     description: {
         type: String,
         max: 500
     },
-    img: {
+    itemType:{
         type: String,
+        default: "food"
     },
-    interested: {
-        type: Array,
-        default: []
+    bestBy:{
+        type: Date,
+    },
+    name :{
+        type: String,
+        default: ""
+    },
+    price:{
+        type: String,
+        min:0,
+        max:200
+    },
+    pictureURL:{
+        type: String,
+        default: ""
     }
+
 });
 
 let Post = mongoose.model("Post", PostSchema)
