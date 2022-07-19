@@ -1,5 +1,6 @@
 
 
+
 const uploadPost = asyncHandler(async (req, res) => {
     const { price, expirationDate, nameOfItem, description, ingredients_allergens } = req.body
 

@@ -4,6 +4,10 @@ const cors = require('cors')
 const helmet = require("helmet")
 const morgan = require("morgan")
 
+const multer = require("multer")
+const uploadPost=multer({dest: "postPictureUploads"})
+
+
 const connectDB = require('./config/db')
 
 require('dotenv').config()
