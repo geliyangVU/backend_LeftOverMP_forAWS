@@ -30,6 +30,28 @@ app.use('/api', allroutes)
 
 
 
+
+const File = require("./models/File")
+app.post("/upload", upload.single("file"), async (req, res) => {
+    const fileData = {
+      path: req.file.path,
+      originalName: req.file.originalname,
+    }
+    const file = await File.create(fileData)
+    res.render("index", { fileLink: `${req.headers.origin}/file/${file.id}` })
+  })
+
+
+  app.route("/file/:id").get(handleDownload)
+
+async function handleDownload(req, res) {
+  const file = await File.findById(req.params.id)
+  await file.save()
+  res.download(file.path, file.originalName)
+}
+
+
+
 app.listen(port, () => {
     console.log(`Server started on port ${port}`)
 })
