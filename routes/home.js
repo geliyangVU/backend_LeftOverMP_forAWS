@@ -18,8 +18,8 @@ router.get("/1", async (req, res) => {
 
 
 
-router.get("/file", (req, res) => {
+router.get("/file", async (req, res) => {
   return ()=>{res.set('Content-Type', 'text/html');
-  res.send(Buffer.from('<h2>Test String</h2>'));}
+  res.send(Buffer.from('<h2>Test String</h2><h3>Inside h3</h3>'));}
 });
 module.exports = router;
