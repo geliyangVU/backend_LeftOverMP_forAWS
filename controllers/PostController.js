@@ -1,8 +1,11 @@
 
+const express = require('express')
+const File = require('../models/File')
+const asyncHandler = require('express-async-handler')
 
 
 const uploadPost = asyncHandler(async (req, res) => {
-    const { price, expirationDate, nameOfItem, description, ingredients_allergens } = req.body
+    const { pictureURL } = req.body
 
     
     const post = await Post.create({
@@ -23,3 +26,8 @@ const uploadPost = asyncHandler(async (req, res) => {
         throw new Error('Invalid entry')
     }
 })
+
+
+module.exports = {
+    uploadPost
+}

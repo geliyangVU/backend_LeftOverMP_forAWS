@@ -4,7 +4,7 @@ const { getAllUsers, getUser, editPassword, deleteUser, loginUser, registerUser,
 const { getAllItems, uploadItem, deleteItem, getItem } = require('../controllers/itemController')
 const {createConversation,getUserConversation} = require("../controllers/conversationController")
 const { sendMessage,getUserMessage } = require('../controllers/messageController')
-
+const { uploadPost } = require('../controllers/postController')
 
 
 //User Controller
@@ -26,16 +26,20 @@ router.put('/users/:id/unfollow', unfollowUser)
 
 
 
-// Item Controller
-router.get('/items/getAllItems', getAllItems)
-router.post('/items/uploadItem', uploadItem)
-router.delete('/items/deleteItem', deleteItem)
-router.get('/items/getItem', getItem)
+// // Item Controller
+// router.get('/items/getAllItems', getAllItems)
+// router.post('/items/uploadItem', uploadItem)
+// router.delete('/items/deleteItem', deleteItem)
+// router.get('/items/getItem', getItem)
 
 
 
 //Post Controller
 //ToDo
+router.post('/post/uploadPost',uploadPost)
+
+
+
 
 
 //Conversation Controller
