@@ -4,7 +4,7 @@ const { getAllUsers, getUser, editPassword, deleteUser, loginUser, registerUser,
 const { getAllItems, uploadItem, deleteItem, getItem } = require('../controllers/itemController')
 const {createConversation,getUserConversation} = require("../controllers/conversationController")
 const { sendMessage,getUserMessage } = require('../controllers/messageController')
-const { uploadPost } = require('../controllers/postController')
+// const { uploadPost } = require('../controllers/postController')
 
 
 //User Controller
@@ -36,7 +36,7 @@ router.put('/users/:id/unfollow', unfollowUser)
 
 //Post Controller
 //ToDo
-router.post('/post/uploadPost',uploadPost)
+// router.post('/post/uploadPost',uploadPost)
 
 
 
