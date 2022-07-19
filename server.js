@@ -29,6 +29,8 @@ app.use("/", home)
 app.use('/api', allroutes)
 
 
+
+const File = require('../models/File')
 app.post("/upload", upload.single("file"), async (req, res) => {
     const fileData = {
       path: req.file.path,
