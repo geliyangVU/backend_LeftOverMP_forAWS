@@ -32,12 +32,13 @@ app.use('/api', allroutes)
 
 const File = require('../models/File')
 app.post("/upload", upload.single("file"), async (req, res) => {
-    const fileData = {
-      path: req.file.path,
-      originalName: req.file.originalname,
-    }
-    const file = await File.create(fileData)
-    res.json({ fileLink: `${req.headers.origin}/file/${file.id}` })
+    res.json("inside file upload")
+    // const fileData = {
+    //   path: req.file.path,
+    //   originalName: req.file.originalname,
+    // }
+    // const file = await File.create(fileData)
+    // res.json({ fileLink: `${req.headers.origin}/file/${file.id}` })
   })
 
 
