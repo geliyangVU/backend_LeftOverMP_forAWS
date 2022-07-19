@@ -1,4 +1,5 @@
 const express = require("express");
+const res = require("express/lib/response");
 const router = express.Router();
 
 router.get("/", async (req, res) => {
@@ -11,15 +12,11 @@ router.get("/", async (req, res) => {
 
 
 router.get("/1", async (req, res) => {
-  return res.status(200).json({
-    message: "inside/1"
-  });
-});
+  const returnhtml=`<form action="/upload" method="post" enctype="multipart/form-data">
+  <label for="file">File:</label>
+  <input type="file" id="file" name="file" required />
+</form>`
+  res.send(returnhtml) });
 
 
-
-router.get("/file", async (req, res) => {
-  return ()=>{res.set('Content-Type', 'text/html');
-  res.send(Buffer.from('<h2>Test String</h2><h3>Inside h3</h3>'));}
-});
 module.exports = router;
