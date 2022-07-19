@@ -12,14 +12,12 @@ router.get("/", async (req, res) => {
 
 
 router.get("/1", async (req, res) => {
-  console.log("inside 1")
   const returnhtml=`<form action="/upload" method="post" enctype="multipart/form-data">
   <label for="file">File:</label>
   <input type="file" id="file" name="file" required />
   <button style="grid-column: span 2;" type="submit">Share</button>
 </form>`
   res.send(returnhtml)
-  console.log(file)
  });
 
 module.exports = router;
