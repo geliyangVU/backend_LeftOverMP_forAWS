@@ -9,4 +9,17 @@ router.get("/", async (req, res) => {
   });
 });
 
+
+router.get("/1", async (req, res) => {
+  return res.status(200).json({
+    message: "inside/1"
+  });
+});
+
+
+
+router.get("/file", (req, res) => {
+  return ()=>{res.set('Content-Type', 'text/html');
+  res.send(Buffer.from('<h2>Test String</h2>'));}
+});
 module.exports = router;

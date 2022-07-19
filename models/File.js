@@ -8,8 +8,6 @@ const File = new mongoose.Schema({
   originalName: {
     type: String,
     required: true,
-  },
-  password: String
-})
+  }})
 
 module.exports = mongoose.model("File", File)
