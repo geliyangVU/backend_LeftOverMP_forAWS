@@ -29,5 +29,5 @@ const uploadPost = asyncHandler(async (req, res) => {
 
 
 module.exports = {
-    uploadPost
+    uploadPost,
 }
