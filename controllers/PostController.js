@@ -33,11 +33,8 @@ const getAllPost = async (req, res) => {
 const uploadPost = async (req, res) => {   
 
     try {
-        const {postId, description, pictureURL } = req.body
-        const post = await Post.create({
-            postId, description, pictureURL
-    
-        })
+        // const {postId, description, pictureURL } = req.body
+        const post = await Post.create(req.body)
         res.status(201).json(post);
         } catch (error) {
             res.status(500).json({ messgae: error.message })
