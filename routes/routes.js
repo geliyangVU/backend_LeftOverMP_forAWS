@@ -26,7 +26,7 @@ router.put('/users/:id/unfollow', unfollowUser)
 //ToDo
 // // router.post('/post/uploadPost',uploadPost)
 router.post('/posts/uploadPost', uploadPost)
-router.get('/posts/getPost/:id', getPost)
+router.get('/posts/getPost', getPost)
 
 
 
