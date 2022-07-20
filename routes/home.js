@@ -11,13 +11,13 @@ router.get("/", async (req, res) => {
 });
 
 
-router.get("/1", async (req, res) => {
-  const returnhtml=`<form action="/upload" method="post" enctype="multipart/form-data">
-  <label for="file">File:</label>
-  <input type="file" id="file" name="file" required />
-  <button style="grid-column: span 2;" type="submit">Share</button>
-</form>`
-  res.send(returnhtml)
- });
+// router.get("/1", async (req, res) => {
+//   const returnhtml=`<form action="/upload" method="post" enctype="multipart/form-data">
+//   <label for="file">File:</label>
+//   <input type="file" id="file" name="file" required />
+//   <button style="grid-column: span 2;" type="submit">Share</button>
+// </form>`
+//   res.send(returnhtml)
+//  });
 
 module.exports = router;

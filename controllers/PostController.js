@@ -1,6 +1,5 @@
 
 const express = require('express')
-// const File = require('../models/File')
 const Post = require("../models/Post")
 const asyncHandler = require('express-async-handler')
 
