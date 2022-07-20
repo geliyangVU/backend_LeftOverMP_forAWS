@@ -16,9 +16,10 @@ const getPost = async (req, res) => {
 
 
 const uploadPost = async (req, res) => {   
-    const { userId, postId, description, pictureURL } = req.body
 
     try {
+        const { userId, postId, description, pictureURL } = req.body
+
         const post = await Post.create({
             userId, postId, description, pictureURL
     
