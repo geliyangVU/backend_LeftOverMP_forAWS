@@ -1,33 +1,32 @@
 
 const express = require('express')
-const File = require('../models/File')
+// const File = require('../models/File')
+const Post = require("../models/Post")
 const asyncHandler = require('express-async-handler')
 
 
-const uploadPost = asyncHandler(async (req, res) => {
-    const { pictureURL } = req.body
-
-    
-    const post = await Post.create({
-        price, expirationDate, nameOfItem, description, ingredients_allergens
-    })
-
-    if (post) {
-        res.status(201).json({
-            price: post.price,
-            expirationDate: post.expirationDate,
-            name: post.name,
-            description: post.description,
-            message: "Post uploaded"
-        })
-
-    } else {
-        res.status(400)
-        throw new Error('Invalid entry')
+const getPost = async (req, res) => {
+    try {
+        const post = await Post.find()
+        res.status(200).json(post)
+    } catch (error) {
+        res.status(500).json({ messgae: error.message })
     }
+}
+
+
+
+const uploadPost = asyncHandler(async (req, res) => {    
+    const post = new Post(req.body)
+    try {
+        await post.save();
+        res.status(201).json(item);
+        } catch (error) {
+            res.status(500).json({ messgae: error.message })
+        }
 })
 
 
 module.exports = {
-    uploadPost,
+    uploadPost,getPost
 }
