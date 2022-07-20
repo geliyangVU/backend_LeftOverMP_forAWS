@@ -24,9 +24,9 @@ router.put('/users/:id/unfollow', unfollowUser)
 
 //Post Controller
 //ToDo
-// router.post('/post/uploadPost',uploadPost)
-router.post('/posts/uploadPost', uploadPost)
-router.get('/posts/getPost/:id', getPost)
+// // router.post('/post/uploadPost',uploadPost)
+// router.post('/posts/uploadPost', uploadPost)
+// router.get('/posts/getPost/:id', getPost)
 
 
 
