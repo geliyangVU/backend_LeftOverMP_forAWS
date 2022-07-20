@@ -4,11 +4,11 @@ const Schema = mongoose.Schema;
 const PostSchema = new mongoose.Schema({
     userId: {
         type: String,
-        required: true
+        // required: true
     },
     postId: {
         type: String,
-        required: true
+        // required: true
     },
     description: {
         type: String,

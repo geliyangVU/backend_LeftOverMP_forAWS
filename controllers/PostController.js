@@ -15,10 +15,14 @@ const getPost = async (req, res) => {
 
 
 
-const uploadPost = async (req, res) => {    
-    const post = new Post(req.body)
+const uploadPost = async (req, res) => {   
+    const { userId, postId, description, pictureURL } = req.body
+
     try {
-        await post.save();
+        const post = await Post.create({
+            userId, postId, description, pictureURL
+    
+        })
         res.status(201).json(item);
         } catch (error) {
             res.status(500).json({ messgae: error.message })
