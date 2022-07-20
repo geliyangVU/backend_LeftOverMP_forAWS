@@ -1,9 +1,9 @@
 const express = require('express')
 const router = express.Router()
 const { getAllUsers, getUser, editPassword, deleteUser, loginUser, registerUser, followUser, unfollowUser } = require('../controllers/userController')
-const {createConversation,getUserConversation} = require("../controllers/conversationController")
-const { sendMessage,getUserMessage } = require('../controllers/messageController')
-// const{uploadPost,getPost } = require('../controllers/postController')
+// const {createConversation,getUserConversation} = require("../controllers/conversationController")
+// const { sendMessage,getUserMessage } = require("../controllers/messageController")
+// const{uploadPost,getPost } = require("../controllers/postController")
 
 
 //User Controller
@@ -32,15 +32,15 @@ router.put('/users/:id/unfollow', unfollowUser)
 
 
 
-//Conversation Controller
-router.post('/conversations/createConversation', createConversation)//tested using postman
-router.get('/conversations/getUserConversation/:id', getUserConversation)//tested using postman
+// //Conversation Controller
+// router.post('/conversations/createConversation', createConversation)//tested using postman
+// router.get('/conversations/getUserConversation/:id', getUserConversation)//tested using postman
 
 
 
-//Message Controller
-router.post('/messages/sendMessage', sendMessage)//tested using postman
-router.get('/messages/:ConversationId', getUserMessage)//tested using postman
+// //Message Controller
+// router.post('/messages/sendMessage', sendMessage)//tested using postman
+// router.get('/messages/:ConversationId', getUserMessage)//tested using postman
 
 
 module.exports = router
