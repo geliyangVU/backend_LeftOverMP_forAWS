@@ -15,7 +15,7 @@ const getPost = async (req, res) => {
 
 
 
-const uploadPost = asyncHandler(async (req, res) => {    
+const uploadPost = async (req, res) => {    
     const post = new Post(req.body)
     try {
         await post.save();
@@ -23,7 +23,7 @@ const uploadPost = asyncHandler(async (req, res) => {
         } catch (error) {
             res.status(500).json({ messgae: error.message })
         }
-})
+}
 
 
 module.exports = {
