@@ -3,7 +3,7 @@ const router = express.Router()
 const { getAllUsers, getUser, editPassword, deleteUser, loginUser, registerUser, followUser, unfollowUser } = require('../controllers/userController')
 // const {createConversation,getUserConversation} = require("../controllers/conversationController")
 // const { sendMessage,getUserMessage } = require("../controllers/messageController")
-const{uploadPost,getPostById,getAllPost } = require("../controllers/postControllerfinal")
+const{uploadPost,getPostById,getAllPost } = require('../controllers/postControllerfinal')
 
 
 //User Controller
