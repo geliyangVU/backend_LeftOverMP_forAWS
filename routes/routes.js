@@ -3,7 +3,7 @@ const router = express.Router()
 const { getAllUsers, getUser, editPassword, deleteUser, loginUser, registerUser, followUser, unfollowUser } = require('../controllers/userController')
 // const {createConversation,getUserConversation} = require("../controllers/conversationController")
 // const { sendMessage,getUserMessage } = require("../controllers/messageController")
-const{uploadPost,getPostById,getAllPost } = require('../controllers/postControllerfinal')
+// const{uploadPost,getPostById,getAllPost } = require('../controllers/postController')
 
 
 //User Controller
@@ -25,9 +25,9 @@ router.put('/users/:id/unfollow', unfollowUser)
 //Post Controller
 //ToDo
 // // router.post('/post/uploadPost',uploadPost)
-router.post('/posts/uploadPost', uploadPost)
-router.get('/posts/getPostById/:id', getPostById)
-router.get('/posts/getAllPost', getAllPost)
+// router.post('/posts/uploadPost', uploadPost)
+// router.get('/posts/getPostById/:id', getPostById)
+// router.get('/posts/getAllPost', getAllPost)
 
 
 
