@@ -1,6 +1,5 @@
-
 const express = require('express')
-const Post = require("../models/Post.js")
+const Post = require("../models/Post")
 const asyncHandler = require('express-async-handler')
 
 
