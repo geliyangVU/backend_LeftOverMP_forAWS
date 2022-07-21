@@ -5,8 +5,6 @@ const router = express.Router();
 router.get("/", async (req, res) => {
   const returnHTML=`<h1>LeftOverBackend</h1>
   <div>This is homepage</div>`
-
-
   return res.status(200).send(returnHTML)
 });
 

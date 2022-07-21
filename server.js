@@ -25,8 +25,6 @@ app.use(morgan("common"))
 const home = require("./routes/home")
 const allroutes = require("./routes/routes")
 app.use("/", home)
-
-
 app.use('/api', allroutes)
 
 
