@@ -20,6 +20,7 @@ app.use(cors());
 app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));
+app.set("view engine", "ejs");
 
 const home = require("./routes/home");
 const allroutes = require("./routes/routes");
