@@ -14,6 +14,7 @@ const {
   uploadPost,
   getPostById,
   getAllPost,
+  updatePost,
 } = require("../controllers/postController");
 const {
   createConversation,
@@ -42,6 +43,7 @@ router.put("/users/:id/unfollow", unfollowUser);
 router.post("/posts/uploadPost", uploadPost);
 router.get("/posts/getPostById/:id", getPostById);
 router.get("/posts/getAllPost", getAllPost);
+router.put("/posts/:id", updatePost);
 
 //Conversation Controller
 router.post("/conversations/createConversation", createConversation);
