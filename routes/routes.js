@@ -15,6 +15,7 @@ const {
   getPostById,
   getAllPost,
   updatePost,
+  deletePost,
 } = require("../controllers/postController");
 const {
   createConversation,
@@ -44,6 +45,7 @@ router.post("/posts/uploadPost", uploadPost);
 router.get("/posts/getPostById/:id", getPostById);
 router.get("/posts/getAllPost", getAllPost);
 router.put("/posts/:id", updatePost);
+router.delete("/posts/:id", deletePost);
 
 //Conversation Controller
 router.post("/conversations/createConversation", createConversation);
